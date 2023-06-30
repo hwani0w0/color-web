@@ -16,6 +16,7 @@ pipeline {
         }
         stage('Deploy') { 
             steps {
+                sh 'sudo docker stop web && sudo docker rm web'
                 sh 'sudo docker run --name web -p 80:80 -dt 52.79.48.121:30002/hyehwan/color-web:latest'
             }
         }        
