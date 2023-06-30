@@ -5,7 +5,7 @@ pipeline {
             steps {
                 sh 'git clone https://github.com/hwani0w0/color-web.git'
                 sh 'cd color-web'
-                sh 'sudo docker build -t color-web:latest Dockerfile .'
+                sh 'sudo docker build -t color-web:latest -f Dockerfile .'
             }
         }
         stage('Push') { 
