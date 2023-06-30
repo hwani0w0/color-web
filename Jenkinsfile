@@ -10,7 +10,7 @@ pipeline {
         }
         stage('Push') { 
             steps {
-                sh 'sudo docker login -u admin 52.79.48.121:30002 --password-stdin << 'Harbor12345' '
+                sh 'sudo docker login -u admin 52.79.48.121:30002 --password-stdin << 'Harbor12345''
                 sh 'sudo docker push 52.79.48.121:30002/hyehwan/color-web'
             }
         }
