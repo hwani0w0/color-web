@@ -10,7 +10,7 @@ pipeline {
         }
         stage('Push') { 
             steps {
-                sh 'sudo podman push 52.79.48.121:30002/hyehwan/color-web:latest'
+                sh 'sudo podman push 52.79.48.121:30002/hyehwan/color-web'
             }
         }
     }
