@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Push') { 
             steps {
-                sh 'sudo podman login 52.79.48.121:30002 -u admin -p Harbor12345'
+                sh 'sudo podman login 52.79.48.121:30002 --username admin --password Harbor12345'
                 sh 'sudo podman push 52.79.48.121:30002/hyehwan/color-web'
             }
         }
