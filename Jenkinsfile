@@ -11,7 +11,7 @@ pipeline {
         stage('Push') { 
             steps {
                 sh 'sudo docker login 52.79.48.121:30002 -u admin -p Harbor12345'
-                sh 'sudo docker push 52.79.48.121:30002/hyehwan/color-web'
+                sh 'sudo docker push 52.79.48.121:30002/hyehwan/color-web:latest'
             }
         }
         stage('Deploy') { 
