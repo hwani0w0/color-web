@@ -15,7 +15,7 @@ pipeline {
         stage('Deploy') { 
             steps {
                 sh 'pwd'
-                sh 'kubectl apply t -f hh-deployment.yaml --record'
+                sh 'kubectl apply -f hh-deployment.yaml --record'
             }
         }        
     }
