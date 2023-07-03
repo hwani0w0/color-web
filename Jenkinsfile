@@ -15,7 +15,7 @@ pipeline {
         stage('Deploy') { 
             steps {
                 sh 'pwd'
-                sh 'kubectl rollout restart deployment color-web'
+                sh 'kubectl rollout restart deployment color-web -n hyehwan'
             }
         }        
     }
