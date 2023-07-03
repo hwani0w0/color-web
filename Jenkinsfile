@@ -15,7 +15,7 @@ pipeline {
         stage('Deploy') { 
             steps {
                 sh 'pwd'
-                sh 'kubectl apply -f hh-deployment.yaml --record'
+                sh 'kubectl rollout restart color-web'
             }
         }        
     }
