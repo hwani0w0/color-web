@@ -7,8 +7,9 @@ metadata:
 spec:
   selector:
     app: color-web
-  type: ClusterIP
+  type: NodePort
   ports:
     - protocol: TCP
-      port: 50080
+      nodePort: 30088
+      port: 80
       targetPort: 80
