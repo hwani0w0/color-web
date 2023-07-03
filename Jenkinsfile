@@ -15,7 +15,7 @@ pipeline {
         stage('Deploy') { 
             steps {
                 sh 'pwd'
-                sh 'kubectl set image deployment -f hh-deployment.yaml color-web=color-web:latest --record'
+                sh 'kubectl set image deployment -f hh-deployment.yaml color-web=52.79.48.121:30002/hyehwan/color-web:latest --record'
             }
         }        
     }
