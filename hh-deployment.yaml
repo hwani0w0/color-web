@@ -1,0 +1,27 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: color-web
+  namespace: hyehwan
+spec:
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  replicas: 3
+  selector:
+    matchLabels:
+      app: color-web
+  template:
+    metadata:
+      labels:
+        app: color-web
+    spec:
+      containers:
+        - name: color-web
+          image: hyehwan25/color-web:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
