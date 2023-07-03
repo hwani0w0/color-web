@@ -15,8 +15,7 @@ pipeline {
         stage('Deploy') { 
             steps {
                 sh 'pwd'
-                sh 'kubectl apply -f hh-deployment.yaml'
-                sh 'kubectl apply -f hh-service.yaml'
+                sh 'kubectl set image deployment -f hh-deployment.yaml'
             }
         }        
     }
