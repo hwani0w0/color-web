@@ -3,20 +3,19 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-                sh 'cd color-web'
-                sh 'sudo docker build --tag 52.79.48.121:30002/hyehwan/color-web:latest -f Dockerfile .'
+                sh 'sudo docker build --tag 52.79.48.121:30002/hyehwan/color-web:latest -f color-web/Dockerfile .'
             }
         }
         stage('Push') { 
             steps {
-                sh 'sudo docker login 52.79.48.121:30002 -u admin -p Harbor12345'
-                sh 'sudo docker push 52.79.48.121:30002/hyehwan/color-web:latest'
+                sh 'sudo podman login 52.79.48.121:30002 --username admin --password Harbor12345 --tls-verify=false'
+                sh 'sudo podman push 52.79.48.121:30002/hyehwan/color-web:latest'
             }
         }
         stage('Deploy') { 
             steps {
-                sh 'sudo docker stop web && sudo docker rm web'
-                sh 'sudo docker run --name web -p 80:80 -dt 52.79.48.121:30002/hyehwan/color-web:latest'
+                sh 'kubectl apply -f color-web/hh-deployment.yaml'
+                sh 'kubectl apply -f color-web/hh-service.yaml'
             }
         }        
     }
