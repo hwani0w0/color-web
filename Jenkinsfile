@@ -14,8 +14,9 @@ pipeline {
         }
         stage('Deploy') { 
             steps {
-                sh 'kubectl apply -f color-web/hh-deployment.yaml'
-                sh 'kubectl apply -f color-web/hh-service.yaml'
+                sh 'pwd'
+                sh 'kubectl apply -f hh-deployment.yaml'
+                sh 'kubectl apply -f hh-service.yaml'
             }
         }        
     }
