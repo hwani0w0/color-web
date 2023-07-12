@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-                sh 'sudo docker build --tag 52.79.48.121:30002/hyehwan/color-web:latest -f color-web/Dockerfile .'
+                sh 'sudo podman build --tag 52.79.48.121:30002/hyehwan/color-web:latest -f color-web/Dockerfile .'
             }
         }
         stage('Push') { 
@@ -15,8 +15,7 @@ pipeline {
         stage('Deploy') { 
             steps {
                 sh 'pwd'
-                sh 'kubectl apply -f hh-deployment.yaml'
-                sh 'kubectl apply -f hh-service.yaml'
+                sh 'kubectl apply -f color-service.yaml'
                 sh 'kubectl rollout restart deployment color-web -n hyehwan'
             }
         }        
